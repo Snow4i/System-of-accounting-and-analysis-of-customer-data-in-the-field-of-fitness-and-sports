@@ -10,18 +10,22 @@ class FitnessSystem(tk.Tk):
         
         # Меню
         menu = tk.Menu(self)
+        
+        # Меню Файл
         file_menu = tk.Menu(menu, tearoff=0)
         file_menu.add_command(label="Открыть базу данных", command=self.open_database)
         file_menu.add_separator()
         file_menu.add_command(label="Выход", command=self.destroy)
         menu.add_cascade(label="Файл", menu=file_menu)
         
+        # Меню Клиенты
         client_menu = tk.Menu(menu, tearoff=0)
         client_menu.add_command(label="Добавить нового клиента", command=self.add_client)
         client_menu.add_command(label="Редактировать данные клиента", command=self.edit_client)
         client_menu.add_command(label="Удалить клиента", command=self.delete_client)
         menu.add_cascade(label="Клиенты", menu=client_menu)
         
+        # Меню Отчеты
         report_menu = tk.Menu(menu, tearoff=0)
         report_menu.add_command(label="Посмотреть отчеты", command=self.view_reports)
         menu.add_cascade(label="Отчеты", menu=report_menu)
@@ -44,6 +48,7 @@ class FitnessSystem(tk.Tk):
         view_report_button = tk.Button(main_frame, text="Просмотр отчетов", command=self.view_reports)
         view_report_button.pack(pady=10)
     
+    # Функции для меню
     def open_database(self):
         print("Открытие базы данных...")
     
@@ -58,7 +63,7 @@ class FitnessSystem(tk.Tk):
     
     def view_reports(self):
         print("Просмотр отчетов...")
-
+        
 if __name__ == "__main__":
     app = FitnessSystem()
     app.mainloop()
